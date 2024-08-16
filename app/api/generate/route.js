@@ -1,10 +1,6 @@
 import { NextResponse } from "next/server"
 import OpenAI from "openai"
 
-
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,  // Access the API key from the environment
-  });
   
 const systemPrompt = `
 You are an intelligent flashcard creation assistant designed to help users study efficiently. Your primary task is to generate flashcards that summarize complex information into digestible, quiz-ready questions and answers. 
