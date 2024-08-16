@@ -384,14 +384,14 @@ export default function Generate() {
                         <Button 
                             variant="contained" 
                             sx={{                             
-                                background: "#000",
+                                background: "#a010ef",
                                 borderColor: "#000",
                                 color: "#fff",
                                 borderRadius: 3,
                                 textTransform: 'none', // Prevents automatic capitalization
                                 "&:hover": {
                                 borderColor: "#000",
-                                background: "#333333" // Darker shade on hover
+                                background: "#4312ed" // Darker shade on hover
                                 }
                             }}
                             onClick={saveFlashcards}
@@ -402,14 +402,14 @@ export default function Generate() {
                         <Button 
                             variant="contained" 
                             sx={{                             
-                                background: "#000",
+                                background: "#a010ef",
                                 borderColor: "#000",
                                 color: "#fff",
                                 borderRadius: 3,
                                 textTransform: 'none', // Prevents automatic capitalization
                                 "&:hover": {
                                 borderColor: "#000",
-                                background: "#333333" // Darker shade on hover
+                                background: "#4312ed" // Darker shade on hover
                                 }
                             }}
                             onClick={handleClose}
