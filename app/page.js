@@ -252,6 +252,129 @@ export default function Home() {
           </Grid>
         </Grid>
       </Box>
+
+      {/* PRICING SECTION */}
+      <Box sx={{ my: 10, textAlign: "center",}}>
+        <Typography 
+          variant="h4" 
+          gutterBottom 
+          sx={{ 
+            fontWeight: 600, 
+            letterSpacing: "0.02em", // Slightly tighter letter spacing for a refined look
+            color: "#000" // Darker color for the title 
+          }}>
+          Choose Your Plan
+        </Typography>
+        <Typography 
+          variant="h6" 
+          color="textSecondary" 
+          gutterBottom 
+          sx={{ 
+            mb: 5,         
+          }}
+        >
+          Select the plan that suits you best
+        </Typography>
+
+        <Grid container spacing={4} justifyContent="center">
+          {/* Basic Plan */}
+          <Grid item xs={12} sm={6} md={4}>
+            <Paper
+              elevation={6}
+              sx={{
+                p: 4,
+                borderRadius: 3,
+                transition: "transform 0.3s ease", // Subtle hover effect
+                "&:hover": {
+                  transform: "scale(1.05)",
+                }
+              }}
+            >
+              <Typography variant="h4" sx={{ fontWeight: 400, mb: 2 }} >
+                Basic
+              </Typography>
+              <Typography color="textSecondary" gutterBottom sx={{ mb: 4 }}>
+                Essential features with limited storage
+              </Typography>
+              <Typography variant="h4" color="#a010ef" gutterBottom sx={{ mb: 2, fontWeight: "bold"}}>
+                $0 / month
+              </Typography>
+              <Typography color="textSecondary" >
+                50 flashcards only
+              </Typography>
+              <Typography color="textSecondary" sx={{ mb: 3 }}>
+                Basic Study Modes
+              </Typography>
+              <Button
+                variant="contained"
+                sx={{ 
+                  mt: 4, 
+                  background: "#4312ed",
+                  borderColor: "#000",
+                  color: "#fff",
+                  borderRadius: 3,
+                  "&:hover": {
+                    borderColor: "#000",
+                    background: "#a010ef" // Darker shade on hover
+                  }
+                }}
+                //onClick={() => handleCheckout("basic")}
+                onClick={() => router.push("/sign-up")}
+              >
+                Select Basic
+              </Button>
+            </Paper>
+          </Grid>
+
+          {/* Pro Plan */}
+          <Grid item xs={12} sm={6} md={4}>
+            <Paper
+              elevation={6}
+              sx={{
+                p: 4,
+                borderRadius: 3,
+                transition: "transform 0.3s ease", // Subtle hover effect
+                "&:hover": {
+                  transform: "scale(1.05)",
+                }
+              }}
+            >
+              <Typography variant="h4" sx={{ fontWeight: 400, mb: 2 }} >
+                Premium
+              </Typography>
+              <Typography color="textSecondary" gutterBottom sx={{ mb: 4 }}>
+                Unlock more cool features
+              </Typography>
+              <Typography variant="h4" color="#a010ef" gutterBottom sx={{ mb: 2, fontWeight: "bold"}}>
+                $10 / month
+              </Typography>
+              <Typography color="textSecondary" >
+                Unlimited flashcards
+              </Typography>
+              <Typography color="textSecondary" sx={{ mb: 3 }}>
+                Advanced Study Modes
+              </Typography>
+              <Button
+                variant="contained"
+                sx={{ 
+                  mt: 4, 
+                  background: "#4312ed",
+                  borderColor: "#000",
+                  color: "#fff",
+                  borderRadius: 3,
+                  "&:hover": {
+                    borderColor: "#000",
+                    background: "#a010ef" // Darker shade on hover
+                  }
+                }}
+                onClick={() => handleCheckout("pro")}
+              >
+                Select Pro
+              </Button>
+            </Paper>
+          </Grid>
+        </Grid>
+      </Box>
     </Container>
   );
 }
