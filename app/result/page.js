@@ -32,6 +32,16 @@ const ResultPage = () => {
         fetchCheckoutSession();
     }, [session_id]);
 
+    useEffect(() => {
+        if (session || error) {
+            const timer = setTimeout(() => {
+                router.push('/');
+            }, 5000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [session, error, router]);
+
     if (loading) {
         return (
           <Container maxWidth="sm" sx={{textAlign: 'center', mt: 4}}>
@@ -49,6 +59,9 @@ const ResultPage = () => {
             <Typography variant="h6" color="error">
               {error}
             </Typography>
+            <Typography variant="body2" sx={{mt: 2}}>
+              You will be redirected to the home page shortly...
+            </Typography>
           </Container>
         );
     }
@@ -64,6 +77,9 @@ const ResultPage = () => {
                   We have received your payment. You will receive an email with the
                   order details shortly.
                 </Typography>
+                <Typography variant="body2" sx={{mt: 2}}>
+                  You will be redirected to the home page shortly...
+                </Typography>
               </Box>
             </>
           ) : (
@@ -72,6 +88,9 @@ const ResultPage = () => {
               <Box sx={{mt: 2}}>
                 <Typography variant="body1">
                   Your payment was not successful. Please try again.
+                </Typography>
+                <Typography variant="body2" sx={{mt: 2}}>
+                  You will be redirected to the home page shortly...
                 </Typography>
               </Box>
             </>
