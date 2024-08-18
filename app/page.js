@@ -26,34 +26,20 @@ export default function Home() {
   
   const router = useRouter();
 
-  const handleCheckout = async (plan) => {
-    try {
-      const checkoutSession = await fetch("/api/checkout_sessions", {
-        method: "POST",
-        headers: {
-          origin: "http://localhost:3000",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ plan }),
-      });
-
-      const checkoutSessionJson = await checkoutSession.json();
-
-      if (checkoutSession.statusCode === 500) {
-        console.error(checkoutSessionJson.message);
-        return;
-      }
-
-      const stripe = await getStripe();
-      const { error } = await stripe.redirectToCheckout({
-        sessionId: checkoutSessionJson.id,
-      });
-
-      if (error) {
-        console.warn(error.message);
-      }
-    } catch (err) {
-      console.error("Error during checkout:", err);
+  const handleCheckout = async () => {
+    const checkoutSession = await fetch('/api/checkout_sessions', {
+      method: 'POST',
+      headers: { origin: 'http://localhost:3000' },
+    })
+    const checkoutSessionJson = await checkoutSession.json()
+  
+    const stripe = await getStripe()
+    const {error} = await stripe.redirectToCheckout({
+      sessionId: checkoutSessionJson.id,
+    })
+  
+    if (error) {
+      console.warn(error.message)
     }
   };
 
@@ -367,7 +353,7 @@ export default function Home() {
                     background: "#a010ef" // Darker shade on hover
                   }
                 }}
-                onClick={() => handleCheckout("pro")}
+                onClick={handleCheckout}
               >
                 Select Pro
               </Button>
